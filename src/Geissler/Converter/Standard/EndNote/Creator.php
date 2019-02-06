@@ -45,9 +45,6 @@ class Creator implements CreatorInterface
                 '%H'    =>  'getOriginalAuthor'
             );
 
-            $dates  =   array(
-                '%8'    =>  'getIssued'
-            );
 
             $fields = array(
                 '%Z'    => 'getAbstract',
@@ -96,14 +93,15 @@ class Creator implements CreatorInterface
                 }
 
                 // dates
-                foreach ($dates as $field => $method) {
-                    if (count($entry->$method()) > 0) {
-                        $date   =   $entry->$method();
-                        $value  =   $this->getDate($date[0]);
+                foreach ($entry->getIssued() as $date) {
+                    /** @var $date \Geissler\Converter\Model\Date */
+                    if ($date->getYear() != '') {
+                        $record['%D'][] = $date->getYear();
+                    }
 
-                        if ($value !== null) {
-                            $record[$field] =   array($this->getDate($date[0]));
-                        }
+                    $value  =   $this->getDate($date);
+                    if ($value !== null) {
+                        $record['%8'][] = array($this->getDate($date));
                     }
                 }
 
