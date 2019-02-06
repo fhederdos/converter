@@ -1,18 +1,18 @@
 {
-    "name":"geissler/converter",
+    "name":"fhederdos/converter",
     "description":"A small library to convert different bibliography formats into each other",
     "keywords":["csl", "bibtex", "endnote", "ris", "bibliography"],
     "type":"library",
     "license":"MIT",
-    "homepage": "https://github.com/geissler/converter",
+    "homepage": "https://github.com/fhederdos/converter",
     "authors":[
         {
-            "name":"Benjamin Geißler",
-            "email":"benjamin.geissler@gmail.com"
+            "name":"Florian Heder",
+            "email":"florian.heder@gmail.com"
         }
     ],
     "require":{
-        "php":">=5.3.0",
+        "php":">=7.0.0",
         "technosophos/LibRIS": "dev-master"
     },
     "autoload":{
