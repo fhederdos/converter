@@ -37,7 +37,6 @@ class Creator implements CreatorInterface
             'publisher'         =>  'getPublisher',
             'series'            =>  'getCollectionNumber',
             'address'           =>  'getAddress',
-            'edition'           =>  'getEdition',
             'isbn'              =>  'getISBN',
             'organization'      =>  'getOrganization',
             'chapter'           =>  'getChapterNumber',
@@ -46,7 +45,8 @@ class Creator implements CreatorInterface
             'journal'           =>  'getJournal',
             'shorttitle'        =>  'getTitleShort',
             'keywords'          =>  'getKeyword',
-            'LCCN'              =>  'getCallNumber'
+            'LCCN'              =>  'getCallNumber',
+            'address'           =>  'getPublisherPlace'
         );
 
         foreach ($data as $entry) {
@@ -182,6 +182,8 @@ class Creator implements CreatorInterface
                 return 'techreport';
             case 'manuscript':
                 return 'unpublished';
+            case 'unknown':
+                return 'misc';
             default:
                 return $type;
         }

@@ -219,7 +219,6 @@ class Parser implements ParserInterface
                 'publisher'         =>  'setPublisher',
                 'series'            =>  'setCollectionNumber',
                 'address'           =>  'setAddress',
-                'edition'           =>  'setEdition',
                 'isbn'              =>  'setISBN',
                 'organization'      =>  'setOrganization',
                 'chapter'           =>  'setChapterNumber',
