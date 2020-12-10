@@ -236,6 +236,9 @@ class Parser implements ParserInterface
             case 'SLIDE':
                 $entry->getType()->setSlide();
                 break;
+            case 'CONF':
+                $entry->getType()->setConference();
+                break;
             default:
                 $entry->getType()->setUnknown();
                 break;
