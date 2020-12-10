@@ -51,7 +51,7 @@ class Parser implements ParserInterface
 
             $fields = array(
                 'N2'    => 'setAbstract',
-                'ID '   => 'setCitationLabel',
+                'ID'    => 'setCitationLabel',
                 'JA'    => 'setCollectionTitle',
                 'JF'    => 'setContainerTitle',
                 'JO'    => 'setContainerTitleShort',
