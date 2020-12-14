@@ -147,14 +147,15 @@ class Creator implements CreatorInterface
         $citationLabel = $entry->getCitationLabel();
 
         if (!$citationLabel) {
-              // author
-            if (count($entry->getAuthor()) > 0) {
-                $author =   $this->createPerson($entry->getAuthor());
-            }
 
-            // editor
+            // if editor set editor as label
             if (count($entry->getEditor()) > 0) {
                 $author =   $this->createPerson($entry->getEditor());
+            }
+
+            // if author set author as label
+            if (count($entry->getAuthor()) > 0) {
+                $author =   $this->createPerson($entry->getAuthor());
             }
             
             $author = str_replace(',', '', $author);
