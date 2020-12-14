@@ -144,9 +144,34 @@ class Creator implements CreatorInterface
     {
         $type   =   $this->getType($entry->getType()->getType());
         $return =   '@' . $type . '{';
+        $citationLabel = $entry->getCitationLabel();
 
-        if ($entry->getCitationLabel() !== null) {
-            $return .=  $entry->getCitationLabel();
+        if (!$citationLabel) {
+              // author
+            if (count($entry->getAuthor()) > 0) {
+                $author =   $this->createPerson($entry->getAuthor());
+            }
+
+            // editor
+            if (count($entry->getEditor()) > 0) {
+                $author =   $this->createPerson($entry->getEditor());
+            }
+            
+            $author = str_replace(',', '', $author);
+            $author = str_replace('.', '', $author);
+            $author = str_replace(';', '', $author);
+            $author = strtok($author, ' ');
+
+            // use issued date for year and month
+            foreach ($entry->getIssued() as $date) {
+                $year = $date->getYear();
+            }
+
+            $citationLabel = $author.$year;
+        }
+
+        if ($citationLabel) {
+            $return .=  $citationLabel;
         } else {
             $return .= $type;
         }
